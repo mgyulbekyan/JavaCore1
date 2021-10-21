@@ -2,7 +2,7 @@ package arrayutil;
 
 public class ArrayUtil {
     public static void main(String[] args) {
-        int[] array = {25, 50, 85, 10, 35, 20, 15, 60, 45, 95};
+        int[] array = {2, 50, 85, 10, 35, 20, 15, 60, 45, 95};
         //Տպել մասիվի բոլոր էլեմենտները
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
@@ -22,23 +22,23 @@ public class ArrayUtil {
 
         }
         //Տպել մասիվի ամենափոքր էլեմենտը
-        int min=array[0];
-        for (int i = 0; i < array.length; i++)
-        { if(array[i]<min)
-            {System.out.println(min);}
-            }
+        int min = 0;
+        for (int i = 0; i < array.length; i++) {
+                if (array[i] < min)
+                    System.out.println(min);
+        }
 
 //Տպել մասիվի էլեմենտների միջի թվաբանականը
             int num = array[0];
-            for (int i = 0; i < array.length; i++)
-            {  num += array[i];
+            for (int i = 0; i < array.length; i++) {
+                num += array[i];
 
-            System.out.println(num / array.length);}
+                System.out.println(num / array.length);
+            }
         }
 
 
-
-        }
+    }
 
 
 
