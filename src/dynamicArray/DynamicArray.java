@@ -8,11 +8,18 @@ public class DynamicArray {
 
     // ստուգել, եթե մասիվի մեջ տեղ չկա, կանչել extend(),
     //և ավելացնել
-    public void add(int value) {
+    public void add(int i) {
         if (array.length == size) {
             extend();
         }
-        array[size++] = value;
+    }
+
+    public void add(int[] numbers) {
+        for (int number : numbers) {
+            add(number);
+
+        }
+
 
     }
 
@@ -21,36 +28,79 @@ public class DynamicArray {
     //2.քցել հին մասիվի էլեմենտները նորի մեջ
     //3.հին մասիվի հղումը կապել նոր մասիվի հղման հետ
     private void extend() {
-        int[] array1 = new int[array.length + 10];
+        int[] tmp = new int[array.length + 10];
         for (int i = 0; i < array.length; i++) {
-            array[i] = array1[i];
+            tmp[i] = array[i];
 
         }
-        array1 = array;
+        array = tmp;
 
     }
 
     //եթե տրված ինդեքսը մեր ունեցած մասիվի ինդեքսի սահմաններում է, վերադարձնել մասիվի
     //ինդեքսերորդ էլեմենտը։ Հակառակ դեպքում վերադարձնել -1:
     public int getByIndex(int index) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == index) {
-                index++;
-            } else return -1;
-
+        if (index < 0 || index > array.length - 1) {
+            System.err.println("invalid index");
+            return -1;
         }
         return array[index];
+    }
+
+    // մասիվից ջնջել ինդեքսերորդ էլեմենտը։
+    public void delete(int index) {
+        for (int i = index; i < size; i++) {
+            array[i - 1] = array[i];
+
+        }
+        size--;
     }
 
 
     //Տպել մասիվի ավելացված էլեմենտները։
     public void print() {
-        for (int size = 0; size < array.length+10; size++) {
+        for (int i = 0; i < size; i++) {
+            System.out.print(array[i] + " ");
 
         }
-        System.out.println(array[size]);
+
 
     }
 
+    public void add(int value, int index) {
+        if (array.length == size) {
+            extend();
+        }
+        for (int i = size - 1; i >= index; i--) {
+            array[i + 1] = array[i];
+        }
+        array[index] = value;
+        size++;
+    }
 
+    public void set(int value, int index) {
+        if (index < 0 || index > size) {
+            System.err.println("invalid index");
+        } else {
+            array[index] = value;
+        }
+
+
+    }
+
+    public boolean isExist(int value) {
+        for (int i = 0; i < size; i++) {
+            if (array[i] == value)
+                return true;
+        }
+  return  false;
+    }
+    public boolean isEmpty(){
+        return size==0;
+    }
 }
+
+
+
+
+

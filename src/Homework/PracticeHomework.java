@@ -18,37 +18,30 @@ public class PracticeHomework {
 
     //վերադարձնել true,  եթե տրված a և b թվերը իրար հավասար են, եթե ոչ false.
     boolean isSameNum(int a, int b) {
-        if (a == b) {
-            return true;
-        } else return false;
-
-
+        return a == b;
     }
+
+    ;
 
     //վերադարձնել true,  եթե թիվը փոքր է կամ համասար է 0- ին։
     // Մնացած դեպքերում վերադարձնել false:
     boolean lessThanOrEqualToZero(int number) {
-        if (number <= 0) {
-            return true;
-        } else return false;
-
+        return number <= 0;
 
     }
 
     //Վերադարձնել ընդունող բուլյանի ժխտված արժեքը։
     boolean reverseBool(boolean value) {
-        if (value = true) {
-            return false;
-        }
-        else return true;
+        return !value;
 
     }
+
     //Վերադարձնել երկու մասիվի ամենամեծ lenght-ը:
-    int maxLenght(int[] array1, int[] array2){
-        if (array1.length>array2.length){
-            return array1.length;
-        }
-        else return array2.length;
+    int maxLenght(int[] array1, int[] array2) {
+
+        return array1.length > array2.length ?
+        array1.length:array2.length;
+
 
     }
 }
