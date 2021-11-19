@@ -10,7 +10,7 @@ public class AuthorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         AuthorStorage authorStorage = new AuthorStorage();
-        Author author = new Author(n)
+        Author author = new Author();
         System.out.println("How many authors we have?");
         int a = scanner.nextInt();
 
@@ -29,7 +29,7 @@ public class AuthorTest {
 
 
         }
-        System.out.println(authorStorage.print());
+
 
 
     }
