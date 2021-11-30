@@ -24,4 +24,13 @@ public class StudentStorage {
     }
 
 
+    public void searchStudentbyLesson(String lesson) {
+        for (int i = 0; i < size; i++) {
+            if (students[i].getLesson().contains(lesson)){
+                System.out.println(students[i]);
+            }
+
+        }
+
+    }
 }

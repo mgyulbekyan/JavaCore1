@@ -16,6 +16,7 @@ public class LessonStudentTest {
     private static final String DELETE_LESSON_BY_NAME = "6";
     private static final String DELETE_STUDENT_BY_EMAIL = "7";
 
+
     private static void printCommands() {
         System.out.println("please input " + EXIT + " for EXIT");
         System.out.println("please input " + ADD_LESSON + " for add author");
@@ -40,12 +41,16 @@ public class LessonStudentTest {
                     addLesson();
                     break;
                 case "ADD_STUDENT":
+                    addStudent();
                     break;
                 case "PRINT_STUDENTS":
+                    studentStorage.print();
                     break;
                 case "PRINT_STUDENTS_BY_LESSON":
+                    printStudentbyLesson();
                     break;
                 case "PRINT_LESSONS":
+                    lessonStorage.print();
                     break;
                 case "DELETE_LESSON_BY_NAME":
                     break;
@@ -59,7 +64,44 @@ public class LessonStudentTest {
 
     }
 
-    private static void addLesson(){
+    private static void printStudentbyLesson() {
+        System.out.println("please input lesson");
+        String lesson = scanner.nextLine();
+        studentStorage.searchStudentbyLesson(lesson);
+    }
+
+    private static void addStudent() {
+        System.out.println("please input student's name");
+        String name = scanner.nextLine();
+        System.out.println("please input student's surname");
+        String surname = scanner.nextLine();
+        System.out.println("please input student's age");
+        int age = Integer.parseInt(scanner.nextLine());
+        System.out.println("please input students's email");
+        String email = scanner.nextLine();
+        System.out.println("please input student's phone");
+        String phone = scanner.nextLine();
+        System.out.println("please input student's lesson");
+        String lesson = scanner.nextLine();
+        Student student = new Student(name, surname, age, email, phone, lesson);
+        studentStorage.add(student);
+        System.out.println("thank you,student was added");
+
+
+    }
+
+    private static void addLesson() {
+        System.out.println("please input lesson's name");
+        String name = scanner.nextLine();
+        System.out.println("please input lesson's duration");
+        double duration = Double.parseDouble(scanner.nextLine());
+        System.out.println("please input lesson's lectureName");
+        String lectureName = scanner.nextLine();
+        System.out.println("please input lesson's price");
+        int price = Integer.parseInt(scanner.nextLine());
+        Lesson lesson = new Lesson(name, duration, lectureName, price);
+        lessonStorage.add(lesson);
+        System.out.println("thank you, lesson was added");
 
     }
 }
